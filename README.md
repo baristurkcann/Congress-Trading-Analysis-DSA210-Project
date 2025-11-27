@@ -1,51 +1,98 @@
-DSA 210 Term Project: Analyzing US Congressional Stock Trading
+# DSA210-CongressionalTrading
 
-1. Project Overview & Motivation
-This project aims to investigate the stock trading activities of United States Congress members. Public scrutiny suggests that congress members may have access to non-public information, potentially allowing them to outperform the general market. 
+**Analyzing the Impact of US Congressional Stock Trading on Market Prices**
 
-The primary goal is to determine if there is a statistically significant difference between the returns of stocks traded by congress members and the market benchmark (S&P 500) immediately following the transaction date.
+A data science project investigating whether US Congress members generate "Abnormal Returns" and outperform the market using potential non-public information.
 
-2. Research Question & Hypotheses
-Research Question: Do US Congress members generate "Abnormal Returns" (AR) in their stock trades compared to the market performance?
+## Contents
 
-To answer this, I will conduct a statistical hypothesis test centered on the Cumulative Abnormal Return (CAR) metric.
+* [Project Overview](#project-overview)
+* [Motivation](#motivation)
+* [Data Sources](#data-sources)
+* [Research Questions & Hypotheses](#research-questions--hypotheses)
+* [Methodology](#methodology)
+* [Analysis Plan](#analysis-plan)
+* [Key Findings (Preliminary)](#key-findings-preliminary)
+* [How to Run](#how-to-run)
 
-Null Hypothesis (H_0): The average Cumulative Abnormal Return (CAR) for stocks purchased by congress members is equal to zero ($\mu_{CAR} = 0$). This implies their trades perform no better than the market average.
-Alternative Hypothesis (H_1): The average Cumulative Abnormal Return (CAR) for stocks purchased by congress members is significantly greater than zero ($\mu_{CAR} > 0$). This implies they systematically outperform the market.
+## Project Overview
 
-3. Data Sources
-I will utilize two primary datasets and enrich them by merging based on ticker symbols and dates.
+This project aims to determine if trades made by US Senators and Representatives systematically outperform the S&P 500 index. By merging political trading disclosures with historical market data, I analyze the "Abnormal Returns" following transaction dates to identify potential informational advantages.
 
-| Data Type | Source | Description |
-|-----------|--------|-------------|
-| Trading Data | [Quiver Quant](https://www.quiverquant.com/) | Dataset containing transaction date, ticker, representative, transaction type (purchase/sale), and amount. |
-| Market Data | Yahoo Finance (`yfinance`) | Historical daily OHLCV (Open, High, Low, Close, Volume) data for individual stocks and the S&P 500 index (SPY). |
+## Motivation
 
-4. Methodology
-The project will follow a standard Data Science pipeline:
+I am working on this project because the intersection of politics and finance raises significant ethical and economic questions.
+* **Market Fairness:** Do policymakers have an unfair advantage over retail investors?
+* **Political Ethics:** Are members of congress voting on bills that directly benefit their portfolios?
+* **Signal Processing:** Can following congressional trades serve as a profitable investment strategy for the public?
 
-A- Data Collection & Cleaning
-Collection: Use Python scripts to scrape/fetch trading data from Quiver Quant and download historical price data via the `yfinance` API.
-Cleaning: Handle missing values, correct ticker symbol inconsistencies, and filter out penny stocks with low liquidity.
-Enrichment: Calculate daily returns for both the specific stocks and the market index (S&P 500).
+## Data Sources
 
-B- Exploratory Data Analysis (EDA)
-* Visualize the distribution of trades by party (Democrat vs. Republican).
-* Analyse the most traded sectors and companies.
-* Time-series visualization of trading volume vs. major political events.
+I collect and merge data from the following sources:
 
-C- Statistical Analysis (Event Study)
-I will implement an Event Study methodology:
-1.  Define Event Window: A period surrounding the transaction date (e.g., $t-5$ to $t+30$ days).
-2.  Calculate Expected Return ($E[R]$): Use the Market Model: 
-    $$R_{stock} = \alpha + \beta \cdot R_{market} + \epsilon$$
-3.  Calculate Abnormal Return (AR): $$AR_{it} = R_{it} - (\alpha_i + \beta_i \cdot R_{mt})$$
-4.  Hypothesis Testing: Perform a one-sample t-test on the Cumulative Abnormal Returns (CAR) to check for statistical significance at the 95% confidence level ($p < 0.05$).
+### 1. Congressional Trading Data
+* **Source:** Quiver Quant (and manual scraping/simulated data for preliminary phase).
+* **Content:** Transaction date, Representative name, Party, Ticker symbol, Transaction type (Buy/Sell), and Amount range.
 
-D- Machine Learning (Future Work)
-After statistical validation, I plan to train a classification model (e.g., Random Forest or Logistic Regression) to predict whether a specific trade will result in a positive return, using features such as:
-* Politician's Party
-* Committee Assignments
-* Sector of the Stock
-* Transaction Amount
-  
+### 2. Market Data
+* **Source:** Yahoo Finance API (`yfinance`).
+* **Content:** Daily OHLCV (Open, High, Low, Close, Volume) data for individual stocks and the benchmark index (S&P 500 / SPY).
+
+## Research Questions & Hypotheses
+
+Based on the initial feedback, I have formulated the following hypotheses to be tested using statistical methods:
+
+### 1. Abnormal Returns Analysis
+**Research Question:** Do stocks purchased by congress members show positive abnormal returns in the 30 days following the trade?
+* **Null Hypothesis ($H_0$):** The average Cumulative Abnormal Return (CAR) for congressional trades is zero ($\mu_{CAR} \le 0$).
+* **Alternative Hypothesis ($H_1$):** The average Cumulative Abnormal Return (CAR) is significantly positive ($\mu_{CAR} > 0$).
+
+### 2. Party Performance Comparison
+**Research Question:** Is there a significant difference in trading performance between Democrats and Republicans?
+* **Null Hypothesis ($H_0$):** There is no significant difference in the mean returns between the two major parties.
+* **Alternative Hypothesis ($H_1$):** One party consistently generates higher returns than the other.
+
+## Methodology
+
+I approach this analysis using the standard **Event Study** framework:
+
+1.  **Data Collection:** Fetching trades and matching them with historical price data using Python.
+2.  **Enrichment:** Calculating the 30-day percentage return for each trade:
+    $$Return = \frac{Price_{t+30} - Price_{t}}{Price_{t}}$$
+3.  **Hypothesis Testing:** Using a one-sample **t-test** to check if the mean return is statistically different from zero.
+4.  **EDA:** Visualizing return distributions and volume spikes around trade dates.
+
+## Analysis Plan
+
+* **Phase 1 (Completed):** Data collection script, cleaning, and preliminary EDA.
+* **Phase 2 (Current):** Statistical Hypothesis Testing on the sample dataset.
+* **Phase 3 (Upcoming):** Implementing Machine Learning models (Random Forest) to predict trade success based on politician attributes.
+
+## Key Findings (Preliminary)
+
+*Based on the analysis of the initial dataset (referenced in `analysis.ipynb`):*
+
+1.  **Positive Returns:** The sample data indicates a positive average return for selected high-profile trades (e.g., Nancy Pelosi's tech trades).
+2.  **Statistical Significance:** Preliminary t-tests suggest that these returns are statistically significant ($p < 0.05$) for the tested window, though a larger dataset is needed for final confirmation.
+3.  **Sector Focus:** Tech giants (AAPL, NVDA, MSFT) constitute the majority of high-volume trades.
+
+## Project Files
+
+* `analysis.ipynb`: The Jupyter Notebook containing data fetching, cleaning, visualization (EDA), and hypothesis testing code.
+* `requirements.txt`: List of Python libraries required to run the analysis.
+* `README.md`: Project documentation.
+
+## How to Run
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/baristurkcann/Congress-Trading-Analysis-DSA210-Project.git](https://github.com/baristurkcann/Congress-Trading-Analysis-DSA210-Project.git)
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3.  **Run the analysis:**
+    Open `analysis.ipynb` in Jupyter Lab or Google Colab and run all cells to reproduce the charts and test results.
