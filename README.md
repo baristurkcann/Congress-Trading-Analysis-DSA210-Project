@@ -86,7 +86,7 @@ I approach this analysis using the standard **Event Study** framework:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/baristurkcann/Congress-Trading-Analysis-DSA210-Project.git](https://github.com/baristurkcann/Congress-Trading-Analysis-DSA210-Project.git)
+    git clone https://github.com/baristurkcann/Congress-Trading-Analysis-DSA210-Project.git
     ```
 
 2.  **Install dependencies:**
