@@ -1,4 +1,4 @@
-# DSA210-Congressional Trading
+# DSA210-Congressional Trading - BARIŞ TÜRKCAN
 
 **Analyzing the Impact of US Congressional Stock Trading on Market Prices**
 
