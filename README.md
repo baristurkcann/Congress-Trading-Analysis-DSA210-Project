@@ -1,32 +1,51 @@
-DSA 210 Project Proposal: The Impact of US Congressional Stock Trading on Market Prices
-1. Project Motivation
-The primary motivation for this project is to analyze whether stock trades (purchases and sales) made by members of the US Congress generate abnormal returns in the stock market. I aim to investigate, using statistical and machine learning methods, whether congress members outperform the market due to their potential access to non-public information, or if the market perceives their trades as a significant signal.
+DSA 210 Term Project: Analyzing US Congressional Stock Trading
 
-2. Data Sources
-This project will utilize two main public datasets:
+1. Project Overview & Motivation
+This project aims to investigate the stock trading activities of United States Congress members. Public scrutiny suggests that congress members may have access to non-public information, potentially allowing them to outperform the general market. 
 
-Congressional Trading Data:
+The primary goal is to determine if there is a statistically significant difference between the returns of stocks traded by congress members and the market benchmark (S&P 500) immediately following the transaction date.
 
-Source: Quiver Quant (quiverquant.com) API or platform.
+2. Research Question & Hypotheses
+Research Question: Do US Congress members generate "Abnormal Returns" (AR) in their stock trades compared to the market performance?
 
-Content: Data on which congress member traded which stock, on what date, and for what volume/amount.
+To answer this, I will conduct a statistical hypothesis test centered on the Cumulative Abnormal Return (CAR) metric.
 
-Stock Price Data:
+Null Hypothesis (H_0): The average Cumulative Abnormal Return (CAR) for stocks purchased by congress members is equal to zero ($\mu_{CAR} = 0$). This implies their trades perform no better than the market average.
+Alternative Hypothesis (H_1): The average Cumulative Abnormal Return (CAR) for stocks purchased by congress members is significantly greater than zero ($\mu_{CAR} > 0$). This implies they systematically outperform the market.
 
-Source: Yahoo Finance (specifically the yfinance Python library).
+3. Data Sources
+I will utilize two primary datasets and enrich them by merging based on ticker symbols and dates.
 
-Content: Daily (or hourly) open, high, low, close (OHLC) prices and volume data for the traded stocks, as well as for benchmark indices like the S&P 500.
+| Data Type | Source | Description |
+|-----------|--------|-------------|
+| Trading Data | [Quiver Quant](https://www.quiverquant.com/) | Dataset containing transaction date, ticker, representative, transaction type (purchase/sale), and amount. |
+| Market Data | Yahoo Finance (`yfinance`) | Historical daily OHLCV (Open, High, Low, Close, Volume) data for individual stocks and the S&P 500 index (SPY). |
 
-3. Data Collection Plan
-The data collection process will involve the following steps:
+4. Methodology
+The project will follow a standard Data Science pipeline:
 
-Congress Data: All congressional buy/sell transactions from the last 1-2 years will be fetched using Python from the Quiver Quant platform and stored in a DataFrame.
+A- Data Collection & Cleaning
+Collection: Use Python scripts to scrape/fetch trading data from Quiver Quant and download historical price data via the `yfinance` API.
+Cleaning: Handle missing values, correct ticker symbol inconsistencies, and filter out penny stocks with low liquidity.
+Enrichment: Calculate daily returns for both the specific stocks and the market index (S&P 500).
 
-Price Data: The yfinance Python library will be used to retrieve all historical price data for the stocks identified in step 1. This will cover a window around the transaction date (e.g., 10 days before and 30 days after the trade).
+B- Exploratory Data Analysis (EDA)
+* Visualize the distribution of trades by party (Democrat vs. Republican).
+* Analyse the most traded sectors and companies.
+* Time-series visualization of trading volume vs. major political events.
 
-Merging: These two datasets will be merged based on the stock ticker and date to create the final dataset for analysis.
+C- Statistical Analysis (Event Study)
+I will implement an Event Study methodology:
+1.  Define Event Window: A period surrounding the transaction date (e.g., $t-5$ to $t+30$ days).
+2.  Calculate Expected Return ($E[R]$): Use the Market Model: 
+    $$R_{stock} = \alpha + \beta \cdot R_{market} + \epsilon$$
+3.  Calculate Abnormal Return (AR): $$AR_{it} = R_{it} - (\alpha_i + \beta_i \cdot R_{mt})$$
+4.  Hypothesis Testing: Perform a one-sample t-test on the Cumulative Abnormal Returns (CAR) to check for statistical significance at the 95% confidence level ($p < 0.05$).
 
-4. Analysis & Methodology Plan (Future Work)
-Due 28 November (Exploratory Data Analysis): EDA and visualizations will be conducted on trading volumes, most active members, and most traded sectors.
-
-Due 02 January (Machine Learning): An "event study" methodology will be applied to test for abnormal returns (alpha) in the days surrounding the transaction date (T=0). Furthermore, classification models (e.g., Random Forest, Logistic Regression) may be explored to predict whether a trade will lead to a significant positive or negative price movement.
+D- Machine Learning (Future Work)
+After statistical validation, I plan to train a classification model (e.g., Random Forest or Logistic Regression) to predict whether a specific trade will result in a positive return, using features such as:
+* Politician's Party
+* Committee Assignments
+* Sector of the Stock
+* Transaction Amount
+  
