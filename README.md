@@ -1,4 +1,4 @@
-# DSA210-CongressionalTrading
+# DSA210-Congressional Trading
 
 **Analyzing the Impact of US Congressional Stock Trading on Market Prices**
 
