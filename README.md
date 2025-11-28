@@ -14,6 +14,7 @@ A data science project investigating whether US Congress members generate "Abnor
 * [Analysis Plan](#analysis-plan)
 * [Key Findings (Preliminary)](#key-findings-preliminary)
 * [How to Run](#how-to-run)
+* [AI Usage Declaration](#ai-usage-declaration)
 
 ## Project Overview
 
