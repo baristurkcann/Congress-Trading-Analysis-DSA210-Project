@@ -96,3 +96,25 @@ I approach this analysis using the standard **Event Study** framework:
 
 3.  **Run the analysis:**
     Open `analysis.ipynb` in Jupyter Lab or Google Colab and run all cells to reproduce the charts and test results.
+
+
+
+    ## AI Usage Declaration
+Per the course academic integrity policy, I explicitly document the use of AI tools in this project. I utilized **Gemini (LLM)** as a productivity assistant for the following specific tasks:
+
+1.  **Code Debugging & Library Syntax:**
+    * I used AI to troubleshoot connection errors with the `yfinance` library (specifically handling the `Empty DataFrame` and `MultiIndex` issues).
+    * **Prompt used:** *"How to handle yfinance download errors and clean multi-level column headers in Python?"*
+
+2.  **Documentation Formatting:**
+    * I generated the Markdown table templates for the "Data Sources" section to ensure clean formatting.
+    * **Prompt used:** *"Create a Markdown table template for describing data sources."*
+
+3.  **Statistical Concept Verification:**
+    * I verified the syntax for `scipy.stats.ttest_1samp` to ensure correct hypothesis testing parameters.
+
+4.  **Formatting & Style Refinement:**
+    * Used to generate Markdown table templates and **refine the professional tone** of the documentation to meet academic standards.
+    * **Prompt used:** *"Help me format the README file and polish the language for a data science project proposal."*
+
+**Statement of Originality:** All logical structuring, hypothesis formulation, and final code execution/verification were performed by me. The AI outputs were used as code snippets and technical references, which I then integrated and refined.
