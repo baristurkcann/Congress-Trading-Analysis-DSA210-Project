@@ -45,8 +45,9 @@ Based on the initial feedback, I have formulated the following hypotheses to be 
 
 ### 1. Abnormal Returns Analysis
 **Research Question:** Do stocks purchased by congress members show positive abnormal returns in the 30 days following the trade?
-* **Null Hypothesis ($H_0$):** The average Cumulative Abnormal Return (CAR) for congressional trades is zero ($\mu_{CAR} \le 0$).
-* **Alternative Hypothesis ($H_1$):** The average Cumulative Abnormal Return (CAR) is significantly positive ($\mu_{CAR} > 0$).
+* **Null Hypothesis (H0):** The average 30 day benchmark adjusted return for congressional trades is less than or equal to zero (μ ≤ 0).
+* **Alternative Hypothesis (H1):** The average 30d ay benchmark adjusted return for congressional trades is significantly positive (μ > 0).
+
 
 ### 2. Party Performance Comparison
 **Research Question:** Is there a significant difference in trading performance between Democrats and Republicans?
@@ -58,7 +59,7 @@ Based on the initial feedback, I have formulated the following hypotheses to be 
 I approach this analysis using the standard **Event Study** framework:
 
 1.  **Data Collection:** Fetching trades and matching them with historical price data using Python.
-2.  **Enrichment:** Calculating the 30-day percentage return for each trade:
+2.  **Enrichment:** Calculating 30 day post transaction returns and adjusting them relative to the market benchmark (SPY) to isolate performance beyond general market movements:
     $$Return = \frac{Price_{t+30} - Price_{t}}{Price_{t}}$$
 3.  **Hypothesis Testing:** Using a one-sample **t-test** to check if the mean return is statistically different from zero.
 4.  **EDA:** Visualizing return distributions and volume spikes around trade dates.
