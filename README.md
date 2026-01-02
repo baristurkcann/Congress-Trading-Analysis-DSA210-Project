@@ -76,7 +76,7 @@ I approach this analysis using the Event Study Inspired Framework:
 
 1.  **Positive Returns:** The sample data indicates a positive average return for selected high-profile trades (e.g., Nancy Pelosi's tech trades).
 2.  **Statistical Significance:** Preliminary t-tests suggest that these returns are statistically significant ($p < 0.05$) for the tested window, though a larger dataset is needed for final confirmation.
-3.  **Sector Focus:** Tech giants (AAPL, NVDA, MSFT) constitute the majority of high-volume trades.
+
 
 ## Project Files
 
