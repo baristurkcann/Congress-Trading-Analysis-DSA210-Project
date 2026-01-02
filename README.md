@@ -2,7 +2,7 @@
 
 **Analyzing the Impact of US Congressional Stock Trading on Market Prices**
 
-A data science project investigating whether US Congress members generate "Abnormal Returns" and outperform the market using potential non-public information.
+A data science project investigating whether US Congress members generate benchmark adjusted returns and outperform the market using potential non-public information.
 
 ## Contents
 
@@ -43,10 +43,10 @@ I collect and merge data from the following sources:
 
 Based on the initial feedback, I have formulated the following hypotheses to be tested using statistical methods:
 
-### 1. Abnormal Returns Analysis
-**Research Question:** Do stocks purchased by congress members show positive abnormal returns in the 30 days following the trade?
+### 1. Benchmark Adjusted Returns Analysis
+**Research Question:** Do stocks purchased by congress members show positive benchmark adjusted returns in the 30 days following the trade?
 * **Null Hypothesis (H0):** The average 30 day benchmark adjusted return for congressional trades is less than or equal to zero (μ ≤ 0).
-* **Alternative Hypothesis (H1):** The average 30d ay benchmark adjusted return for congressional trades is significantly positive (μ > 0).
+* **Alternative Hypothesis (H1):** The average 30 day benchmark adjusted return for congressional trades is significantly positive (μ > 0).
 
 
 ### 2. Party Performance Comparison
@@ -56,7 +56,7 @@ Based on the initial feedback, I have formulated the following hypotheses to be 
 
 ## Methodology
 
-I approach this analysis using the standard **Event Study** framework:
+I approach this analysis using the Event Study Inspired Framework:
 
 1.  **Data Collection:** Fetching trades and matching them with historical price data using Python.
 2.  **Enrichment:** Calculating 30 day post transaction returns and adjusting them relative to the market benchmark (SPY) to isolate performance beyond general market movements:
