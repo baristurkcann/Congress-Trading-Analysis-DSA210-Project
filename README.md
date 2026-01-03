@@ -153,19 +153,23 @@ pip install -r requirements.txt
    - Open analysis.ipynb
    - Execute all cells to reproduce the results
 
-## AI Usage Declaration
+### AI Usage Declaration
 
-In accordance with the course academic integrity policy, AI tools were used as a productivity aid only.
+Per the course academic integrity policy, I explicitly document the use of AI tools in this project. I utilized **Gemini (LLM) and ChatGPT** as a productivity assistant for the following specific tasks:
 
-Usage:
+1.  **Code Debugging & Library Syntax:**
+    * I used AI to troubleshoot connection errors with the `yfinance` library (specifically handling the `Empty DataFrame` and `MultiIndex` issues).
+    * **Prompt used:** *"How to handle yfinance download errors and clean multi-level column headers in Python?"*
 
--Debugging Python errors
+2.  **Documentation Formatting:**
+    * I generated the Markdown table templates for the "Data Sources" section to ensure clean formatting.
+    * **Prompt used:** *"Create a Markdown table template for describing data sources."*
 
--Verifying library syntax
+3.  **Statistical Concept Verification:**
+    * I verified the syntax for `scipy.stats.ttest_1samp` to ensure correct hypothesis testing parameters.
 
--Improving documentation clarity
+4.  **Formatting & Style Refinement:**
+    * Used to generate Markdown table templates and **refine the professional tone** of the documentation to meet academic standards.
+    * **Prompt used:** *"Help me format the README file and polish the language for a data science project proposal."*
 
-AI tools were not used to generate results, interpret findings, or design hypotheses.
-
-**Statement of Originality:**
-All data processing, analysis logic, hypothesis formulation, and final interpretations were performed independently by the author. AI assistance was limited to technical support and documentation refinement.
+**Statement of Originality:** All logical structuring, hypothesis formulation, and final code execution/verification were performed by me. The AI outputs were used as code snippets and technical references, which I then integrated and refined.
