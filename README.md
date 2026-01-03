@@ -85,10 +85,8 @@ The analysis follows an event-study-inspired framework:
 2. **Return Construction:**  
    - Forward returns computed over **252 trading days**  
    - Benchmark-adjusted return defined as:  
-     \[
-     \text{AdjReturn}_{1y} = R_{\text{stock}} - R_{\text{SPY}}
-     \]
-
+     `AdjReturn_1y = Return_stock − Return_SPY`
+   
 3. **Statistical Testing:**  
    - One-sample t-test against zero benchmark-adjusted return  
    - Two-sample Welch t-test for party comparison  
