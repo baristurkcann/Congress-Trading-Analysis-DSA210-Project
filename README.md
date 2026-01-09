@@ -135,6 +135,15 @@ To complement the statistical analysis, a binary classification task was impleme
 - ROC-AUC is approximately **0.50**, indicating no meaningful predictive power  
 - Results are consistent with the statistical findings
 
+## Conclusion
+
+This project examined whether U.S. congressional stock trades exhibit abnormal performance relative to the market using two complementary analytical approaches with different scopes and time horizons.
+
+In the first phase of the analysis, a short-term event-study style approach was applied using a small, manually curated dataset and a 30-day post-transaction window. This analysis focused on specific, high-profile trades and was designed to closely inspect immediate post-trade market reactions. Under this narrow and short-term framework, the results suggested positive benchmark-adjusted returns for certain individuals, and one-sample t-tests indicated statistical significance. These findings are consistent with the intuition that short-term price movements may reflect timely information advantages or market anticipation effects following specific trades.
+
+In contrast, the second phase employed a broader and more systematic approach. A large-scale dataset covering congressional purchase transactions between 2014 and 2024 was used, with forward returns calculated over a 252-trading-day (approximately one-year) horizon. This phase incorporated both traditional statistical testing and machine learning classification models. The benchmark-adjusted one-year returns were centered close to zero, with confidence intervals spanning zero and negligible effect sizes. Furthermore, machine learning models (logistic regression) performed close to baseline and random classification, indicating limited predictive signal in the observable features such as party affiliation, chamber, or trade size.
+
+Additionally, the results demonstrate that inference is highly sensitive to both sample composition and time horizon. When the analysis focuses on a small, manually curated subset of trades and a short 30-day window, particularly involving high-profile individuals such as Nancy Pelosi, hypothesis test outcomes may change and appear statistically significant. This suggests that certain individuals can exhibit short-term, trade-specific effects that are not representative of the broader population. However, when the dataset is expanded to include a large number of trades between 2014 and 2024 and the evaluation horizon is extended to one year, these effects no longer persist. In both short-term and long-term analyses, no statistically significant differences are observed between political parties. This indicates that while individual-level behavior may occasionally generate localized patterns, party affiliation does not systematically explain benchmark-adjusted trading performance.
 
 
 ## How to Run
