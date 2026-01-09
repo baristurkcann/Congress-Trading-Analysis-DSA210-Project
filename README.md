@@ -116,6 +116,7 @@ Based on the final dataset (approximately 2,500 valid observations):
 
 These results suggest no systematic abnormal performance based on publicly observable congressional trading data.
 
+<img width="895" height="432" alt="image" src="https://github.com/user-attachments/assets/6f5e319d-fcdf-426d-b0d5-7be48b778e6a" />
 
 
 ## Machine Learning Extension
