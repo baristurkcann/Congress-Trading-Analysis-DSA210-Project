@@ -148,13 +148,13 @@ In contrast, the second phase employed a broader and more systematic approach. A
 Additionally, the results demonstrate that inference is highly sensitive to both sample composition and time horizon. When the analysis focuses on a small, manually curated subset of trades and a short 30-day window, particularly involving high-profile individuals such as Nancy Pelosi, hypothesis test outcomes may change and appear statistically significant. This suggests that certain individuals can exhibit short-term, trade-specific effects that are not representative of the broader population. However, when the dataset is expanded to include a large number of trades between 2014 and 2024 and the evaluation horizon is extended to one year, these effects no longer persist. In both short-term and long-term analyses, no statistically significant differences are observed between political parties. This indicates that while individual-level behavior may occasionally generate localized patterns, party affiliation does not systematically explain benchmark-adjusted trading performance.
 
 
-**30 STATS**
+**30 DAY STATS**
 
 <img width="869" height="491" alt="image" src="https://github.com/user-attachments/assets/6e9500a6-0c26-41b4-a07b-8c2196016745" />
 <img width="839" height="458" alt="image" src="https://github.com/user-attachments/assets/71efe8f8-75f4-40ed-a7f1-72cd6091de7d" />
 <img width="820" height="456" alt="image" src="https://github.com/user-attachments/assets/9587942f-d84d-4d00-be24-298bda8a75ef" />
 
-**1YEAR ML STATS**
+**1 YEAR ML STATS**
 
 <img width="836" height="443" alt="image" src="https://github.com/user-attachments/assets/e2e0ab8b-5223-4fb2-9791-940284b8fc5c" />
 <img width="563" height="510" alt="image" src="https://github.com/user-attachments/assets/b52b6251-6f1f-4521-8741-908cf36fa14e" />
